@@ -1,12 +1,9 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://guide.cflagrant.fr/sitemap.xml
+Sitemap: https://cuisine-sans-pfas.fr/sitemap.xml
 
-# Disallow utility paths
-Disallow: /assets/
-Disallow: /*.json$
-
-# Allow CSS/JS for proper rendering (Googlebot)
+# Allow CSS/JS for Googlebot rendering
 Allow: /assets/css/
 Allow: /assets/js/
+Allow: /assets/images/

@@ -1,10 +1,8 @@
 # ================================================================
-# CFLAGRANT GUIDE — _redirects
-# For Netlify, Cloudflare Pages, Vercel static hosting
+# cuisine-sans-pfas.fr — Netlify _redirects
+# SPA fallback: all routes serve index.html with 200 (not 301)
+# This allows the JS router to handle /poele-inox, /poele-ceramique etc.
 # ================================================================
 
-# SPA fallback — all routes serve index.html
+# SPA fallback — must be LAST rule
 /*    /index.html    200
-
-# Force HTTPS (Netlify handles this natively when enabled in settings)
-# http://guide.cflagrant.fr/*  https://guide.cflagrant.fr/:splat  301!

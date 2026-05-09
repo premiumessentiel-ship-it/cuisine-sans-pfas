@@ -2020,3 +2020,659 @@ footer {
   .comp-table thead th,
   .comp-table tbody td { padding: 10px 12px; }
 }
+
+/* ================================================================
+   RICH EDITORIAL EXTENSION — v2.0
+   New components: mat-grid, editorial-feature, usage-grid,
+   atmo-section, recipe-grid, advice-grid, trust-pillars, feat-steps
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   HERO EXTENSIONS
+   ---------------------------------------------------------------- */
+.hero__copy { flex: 1; min-width: 0; }
+.hero__ghost-btn {
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.82);
+  border-color: rgba(255,255,255,.2);
+}
+.hero__ghost-btn:hover {
+  background: rgba(255,255,255,.16);
+  color: #fff;
+  border-color: rgba(255,255,255,.35);
+}
+
+/* ----------------------------------------------------------------
+   MATERIAL GRID (dark section, 3 cards with SVG visual)
+   ---------------------------------------------------------------- */
+.mat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(255,255,255,.06);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.08);
+}
+
+.mat-card {
+  background: rgba(255,255,255,.04);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  transition: background var(--dur-base) var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.mat-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--fern);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+.mat-card:hover { background: rgba(255,255,255,.08); }
+.mat-card:hover::after { transform: scaleX(1); }
+.mat-card:focus-visible { outline: 2px solid var(--fern); outline-offset: -2px; }
+
+.mat-card__visual {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/2;
+  flex-shrink: 0;
+}
+
+.mat-card__visual svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+.mat-card:hover .mat-card__visual svg {
+  transform: scale(1.03);
+}
+
+.mat-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(15,31,24,.6) 100%);
+}
+
+.mat-card__body {
+  padding: clamp(20px, 3vw, 28px);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-card__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .6875rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  margin-bottom: var(--space-3);
+}
+
+.mat-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.mat-dot--inox   { background: var(--steel); }
+.mat-dot--cer    { background: var(--fern); }
+.mat-dot--pierre { background: var(--copper); }
+
+.mat-card__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.0625rem, 2vw, 1.3125rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: #fff;
+  margin-bottom: var(--space-3);
+}
+
+.mat-card__desc {
+  font-size: .875rem;
+  color: rgba(255,255,255,.55);
+  line-height: 1.65;
+  margin-bottom: var(--space-4);
+  max-width: none;
+}
+
+.mat-card__props {
+  list-style: none;
+  margin-bottom: var(--space-5);
+  flex: 1;
+}
+
+.mat-card__props li {
+  font-size: .8125rem;
+  color: rgba(255,255,255,.42);
+  padding: 5px 0 5px 16px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  line-height: 1.45;
+  position: relative;
+}
+
+.mat-card__props li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 11px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--sage);
+}
+
+.mat-card__props li:last-child { border-bottom: none; }
+
+.mat-card__cta {
+  font-size: .8125rem;
+  font-weight: 600;
+  color: var(--fern);
+  margin-top: auto;
+  transition: letter-spacing var(--dur-base) var(--ease);
+}
+
+.mat-card:hover .mat-card__cta { letter-spacing: .02em; }
+
+/* ----------------------------------------------------------------
+   EDITORIAL FEATURE SECTION
+   ---------------------------------------------------------------- */
+.editorial-feature__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 6vw, 72px);
+  align-items: center;
+}
+
+.editorial-feature__visual {
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--sh-lg);
+}
+
+.editorial-feature__visual svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.editorial-feature__caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(15,31,24,.9) 0%, transparent 100%);
+  padding: 24px 20px 16px;
+  font-size: .75rem;
+  color: rgba(255,255,255,.55);
+  font-style: italic;
+}
+
+.editorial-feature__content { padding: var(--space-4) 0; }
+
+.editorial-feature__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.125rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin: var(--space-3) 0 var(--space-4);
+}
+
+.editorial-feature__lead {
+  font-size: clamp(.9375rem, 1.5vw, 1.0625rem);
+  color: var(--stone);
+  line-height: 1.75;
+  margin-bottom: var(--space-6);
+  max-width: 52ch;
+}
+
+/* Featured mini steps */
+.feat-steps-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.feat-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--dust);
+}
+
+.feat-step:last-child { border-bottom: none; }
+
+.feat-step__n {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--forest);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.feat-step__t {
+  font-size: .875rem;
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ----------------------------------------------------------------
+   USAGE GRID (4 cards with visual + content)
+   ---------------------------------------------------------------- */
+.usage-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--dust);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  box-shadow: var(--sh-xs);
+}
+
+.usage-card {
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+
+.usage-card__visual {
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  flex-shrink: 0;
+}
+
+.usage-card__visual svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+.usage-card:hover .usage-card__visual svg {
+  transform: scale(1.04);
+}
+
+.usage-card__body {
+  padding: clamp(16px, 2.5vw, 28px);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.usage-card__mat {
+  font-size: .6875rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.usage-card__mat--inox   { color: var(--steel); }
+.usage-card__mat--cer    { color: var(--moss); }
+.usage-card__mat--pierre { color: var(--copper); }
+
+.usage-card__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2vw, 1.1875rem);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: var(--space-3);
+}
+
+.usage-card__desc {
+  font-size: .875rem;
+  color: var(--stone);
+  line-height: 1.65;
+  margin-bottom: var(--space-4);
+  flex: 1;
+  max-width: none;
+}
+
+.usage-card__link {
+  font-size: .8125rem;
+  font-weight: 600;
+  color: var(--forest);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: gap var(--dur-base) var(--ease);
+  align-self: flex-start;
+}
+
+.usage-card:hover .usage-card__link { gap: 9px; }
+
+/* ----------------------------------------------------------------
+   ATMOSPHERE SECTION (full-bleed two-column)
+   ---------------------------------------------------------------- */
+.atmo-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 480px;
+  background: var(--ink);
+  overflow: hidden;
+}
+
+.atmo-section__visual {
+  position: relative;
+  overflow: hidden;
+}
+
+.atmo-section__visual svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.atmo-section__content {
+  display: flex;
+  align-items: center;
+  background: var(--forest);
+  padding: clamp(40px, 8vw, 80px) clamp(32px, 6vw, 64px);
+}
+
+.atmo-section__inner { max-width: 46ch; }
+
+.atmo-section__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.625rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -.025em;
+  margin: var(--space-3) 0 var(--space-6);
+}
+
+.atmo-quote {
+  border-left: 3px solid var(--fern);
+  padding-left: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+.atmo-quote p {
+  font-family: var(--font-serif);
+  font-size: clamp(.9375rem, 1.5vw, 1.0625rem);
+  font-style: italic;
+  color: rgba(255,255,255,.75);
+  line-height: 1.7;
+  margin: 0 0 var(--space-3);
+  max-width: none;
+}
+
+.atmo-quote footer {
+  font-size: .8125rem;
+  color: rgba(255,255,255,.4);
+  font-style: normal;
+}
+
+.atmo-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 24px;
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+
+.atmo-stat__n {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--fern);
+  line-height: 1;
+}
+
+.atmo-stat__l {
+  font-size: .75rem;
+  color: rgba(255,255,255,.45);
+  font-weight: 500;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-top: 3px;
+  display: block;
+}
+
+/* ----------------------------------------------------------------
+   RECIPE GRID
+   ---------------------------------------------------------------- */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: rgba(255,255,255,.07);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.recipe-card {
+  background: rgba(255,255,255,.04);
+  display: flex;
+  flex-direction: column;
+  transition: background var(--dur-base) var(--ease);
+}
+
+.recipe-card:hover { background: rgba(255,255,255,.08); }
+
+.recipe-card__visual {
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  flex-shrink: 0;
+}
+
+.recipe-card__visual svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+.recipe-card:hover .recipe-card__visual svg { transform: scale(1.04); }
+
+.recipe-card__body {
+  padding: clamp(16px, 2.5vw, 24px);
+  flex: 1;
+}
+
+.recipe-card__tag {
+  font-size: .6875rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--sage);
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.recipe-card__title {
+  font-family: var(--font-serif);
+  font-size: clamp(.9375rem, 1.8vw, 1.125rem);
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: var(--space-3);
+}
+
+.recipe-card__mat {
+  margin-bottom: var(--space-3);
+}
+.recipe-card__mat p { margin: 0; max-width: none; }
+
+.recipe-card__note {
+  font-size: .8125rem;
+  color: rgba(255,255,255,.45);
+  line-height: 1.6;
+  margin: 0;
+  max-width: none;
+}
+
+/* ----------------------------------------------------------------
+   EXPERT ADVICE SECTION
+   ---------------------------------------------------------------- */
+.advice-section { position: relative; }
+
+.advice-section__inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 5vw, 48px);
+}
+
+.advice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(255,255,255,.06);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.advice-card {
+  background: rgba(255,255,255,.04);
+  padding: clamp(20px, 3vw, 32px);
+  transition: background var(--dur-base) var(--ease);
+  position: relative;
+}
+
+.advice-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sage), transparent);
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease);
+}
+
+.advice-card:hover { background: rgba(255,255,255,.08); }
+.advice-card:hover::before { opacity: 1; }
+
+.advice-card__icon {
+  font-size: 1.75rem;
+  margin-bottom: var(--space-4);
+  display: block;
+}
+
+.advice-card__title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: var(--space-3);
+}
+
+.advice-card__text {
+  font-size: .875rem;
+  color: rgba(255,255,255,.5);
+  line-height: 1.7;
+  margin: 0;
+  max-width: none;
+}
+
+/* ----------------------------------------------------------------
+   TRUST PILLARS SECTION
+   ---------------------------------------------------------------- */
+.trust-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(20px, 4vw, 40px);
+}
+
+.trust-pillar {
+  text-align: center;
+  padding: clamp(24px, 4vw, 36px) clamp(16px, 2vw, 24px);
+  border-radius: var(--r-md);
+  background: var(--cream);
+  border: 1px solid var(--dust);
+  transition: box-shadow var(--dur-base) var(--ease), transform var(--dur-base) var(--ease);
+}
+
+.trust-pillar:hover {
+  box-shadow: var(--sh-sm);
+  transform: translateY(-3px);
+}
+
+.trust-pillar__icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: var(--space-4);
+}
+
+.trust-pillar__title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: var(--space-3);
+  line-height: 1.3;
+}
+
+.trust-pillar__text {
+  font-size: .8125rem;
+  color: var(--stone);
+  line-height: 1.7;
+  margin: 0;
+  max-width: none;
+}
+
+/* ----------------------------------------------------------------
+   SECTION --INK (dark background override)
+   ---------------------------------------------------------------- */
+.section--ink { background: var(--ink); }
+
+/* ----------------------------------------------------------------
+   SECTION --FOREST
+   ---------------------------------------------------------------- */
+.section--forest { background: var(--forest); }
+
+/* ----------------------------------------------------------------
+   RESPONSIVE — new components
+   ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .mat-grid { grid-template-columns: 1fr; }
+  .advice-grid { grid-template-columns: repeat(2, 1fr); }
+  .trust-pillars { grid-template-columns: repeat(2, 1fr); }
+  .atmo-section { grid-template-columns: 1fr; }
+  .atmo-section__visual { aspect-ratio: 16/7; min-height: 280px; }
+  .atmo-section__content { padding: clamp(32px, 6vw, 56px); }
+  .atmo-section__inner { max-width: none; }
+}
+
+@media (max-width: 768px) {
+  .editorial-feature__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+  .usage-grid { grid-template-columns: 1fr; }
+  .recipe-grid { grid-template-columns: 1fr; }
+  .advice-grid { grid-template-columns: 1fr; }
+  .trust-pillars { grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+  .atmo-stats { grid-template-columns: repeat(2, 1fr); }
+  .mat-grid { gap: 1px; }
+}
+
+@media (max-width: 480px) {
+  .trust-pillars { grid-template-columns: 1fr; }
+  .atmo-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .feat-steps-mini { gap: 4px; }
+}

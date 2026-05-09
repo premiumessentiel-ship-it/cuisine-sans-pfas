@@ -1,6 +1,6 @@
 {
-  "name": "CFLAGRANT Guide — Encyclopédie cuisson saine",
-  "short_name": "CFLAGRANT Guide",
+  "name": "Cuisine sans PFAS — Guide expert cuisson saine",
+  "short_name": "Cuisine sans PFAS",
   "description": "Guides experts sur les poêles inox 18/10, la céramique sans PFAS et la cuisson saine.",
   "start_url": "/",
   "scope": "/",
@@ -53,19 +53,19 @@
     {
       "name": "Guide Inox 18/10",
       "short_name": "Inox",
-      "url": "/#/poele-inox",
+      "url": "/poele-inox",
       "icons": [{ "src": "/assets/images/icon-96.png", "sizes": "96x96" }]
     },
     {
       "name": "Poêle sans PFAS",
       "short_name": "Sans PFAS",
-      "url": "/#/poele-sans-pfas",
+      "url": "/poele-sans-pfas",
       "icons": [{ "src": "/assets/images/icon-96.png", "sizes": "96x96" }]
     },
     {
       "name": "Comparatif inox vs céramique",
       "short_name": "Comparatif",
-      "url": "/#/inox-vs-ceramique",
+      "url": "/inox-vs-ceramique",
       "icons": [{ "src": "/assets/images/icon-96.png", "sizes": "96x96" }]
     }
   ],

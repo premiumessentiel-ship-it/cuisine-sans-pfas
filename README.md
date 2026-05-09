@@ -45,12 +45,12 @@ cflagrant-guide/
 
 1. **Uploader** tous les fichiers à la racine de votre hébergement (ou sous-dossier configuré).
 2. **Vérifier** que le module `mod_rewrite` est activé (nécessaire pour le SPA routing).
-3. **Configurer** le domaine `guide.cflagrant.fr` et pointer le DNS vers l'hébergeur.
+3. **Configurer** le domaine `cuisine-sans-pfas.fr` et pointer le DNS vers l'hébergeur.
 4. **Activer SSL** (Let's Encrypt recommandé), puis décommenter la section HSTS dans `.htaccess`.
 
 ```bash
 # Upload via FTP ou rsync
-rsync -avz ./cflagrant-guide/ user@host:/var/www/guide.cflagrant.fr/
+rsync -avz ./cflagrant-guide/ user@host:/var/www/cuisine-sans-pfas.fr/
 ```
 
 ### Option 2 — Netlify (recommandé, gratuit)
@@ -113,7 +113,7 @@ navigate('poele-inox', event)  →  renderPage('poele-inox')  →  pages['poele-
 
 - Schema.org : WebSite + Organization + BreadcrumbList en global
 - Schema.org Article par page (injecté inline dans chaque page JS)
-- `<link rel="canonical">` sur `guide.cflagrant.fr`
+- `<link rel="canonical">` sur `cuisine-sans-pfas.fr`
 - OG + Twitter Card meta complets
 - Breadcrumb structuré accessible (`aria-label`, `aria-current`)
 - `aria-live="polite"` sur `#main` pour les transitions SPA
