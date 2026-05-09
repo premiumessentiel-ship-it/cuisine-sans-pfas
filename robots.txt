@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://guide.cflagrant.fr/sitemap.xml
+
+# Disallow utility paths
+Disallow: /assets/
+Disallow: /*.json$
+
+# Allow CSS/JS for proper rendering (Googlebot)
+Allow: /assets/css/
+Allow: /assets/js/

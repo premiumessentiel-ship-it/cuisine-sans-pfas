@@ -1,0 +1,10 @@
+# ================================================================
+# CFLAGRANT GUIDE — _redirects
+# For Netlify, Cloudflare Pages, Vercel static hosting
+# ================================================================
+
+# SPA fallback — all routes serve index.html
+/*    /index.html    200
+
+# Force HTTPS (Netlify handles this natively when enabled in settings)
+# http://guide.cflagrant.fr/*  https://guide.cflagrant.fr/:splat  301!
